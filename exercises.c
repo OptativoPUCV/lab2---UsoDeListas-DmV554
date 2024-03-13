@@ -42,6 +42,9 @@ Al finalizar retorna la lista creada.
 
 List *crea_lista() {
   List *L = create_list();
+
+  //Si definimos malloc afuera del for, se reemplazará cada espacio ocupado por el arreglo, en este caso resultado un array solo de numeros 10, que es el ultimo que ocupamos. Es un mismo puntero que modifica su valor y se agrega 10 veces.
+  
   for (int i = 1; i <= 10; i++) {
     int *elemento = malloc(sizeof(int));
     *elemento = i;
@@ -57,7 +60,20 @@ Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y
 retorne la suma de sus elementos.
 */
-int sumaLista(List *L) { return 0; }
+int sumaLista(List *L) { 
+
+  if(L == NULL) return 0;
+  
+  int* elem = first(L);
+  int suma = 0;
+
+  while(elem != NULL) {
+    suma += *elem;
+    elem = next(L);
+  }
+
+  return suma;
+}
 
 /*
 Ejercicio 3.
