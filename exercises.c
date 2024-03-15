@@ -105,7 +105,7 @@ Puedes usar una pila auxiliar.
 void copia_pila(Stack *P1, Stack *P2) {
  // Stack *pilaAux = create_stack();
 
-  imprime_y_vacia_pila(P1);
+  imprime_y_vacia_pila(P2);
 }
 
 /*
