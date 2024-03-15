@@ -112,3 +112,14 @@ Fri 15 Mar 2024 05:16:20 PM UTC:
  tests:  3|2
 total_score: 40/70
 dde40d4
+Fri 15 Mar 2024 05:21:05 PM UTC: 
+ exercises.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+In file included from test.c:5:
+exercises.c: In function ‘copia_pila’:
+exercises.c:112:10: error: unused variable ‘x’ [-Werror=unused-variable]
+  112 |     int* x = pop(P1);
+      |          ^
+cc1: all warnings being treated as errors
+Compilation failed
+72f2d39
