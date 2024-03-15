@@ -123,3 +123,18 @@ exercises.c:112:10: error: unused variable ‘x’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 72f2d39
+Fri 15 Mar 2024 05:21:19 PM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c: In function ‘copia_pila’:
+exercises.c:112:10: error: unused variable ‘x’ [-Werror=unused-variable]
+  112 |     int* x = pop(P1);
+      |          ^
+exercises.c:116:24: error: ‘x’ undeclared (first use in this function)
+  116 |   printf("ELEM: %i", (*x));
+      |                        ^
+exercises.c:116:24: note: each undeclared identifier is reported only once for each function it appears in
+cc1: all warnings being treated as errors
+Compilation failed
+a302504
