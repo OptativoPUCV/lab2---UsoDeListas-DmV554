@@ -182,3 +182,9 @@ Mon 18 Mar 2024 04:43:09 PM UTC:
  1 file changed, 1 insertion(+)
  tests:  0|0
 8c7a4ed
+Mon 18 Mar 2024 04:43:38 PM UTC: 
+ exercises.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+ tests:  3|2
+total_score: 40/70
+bdf9ad1
