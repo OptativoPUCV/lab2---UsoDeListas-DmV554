@@ -135,6 +135,18 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) { 
-  printf("CADENA: %s", cadena);
-  return 0; 
-}
+  Stack *s = create_stack();
+      int i;
+      for (i = 0; cadena[i] != '\0'; i++) {
+          if (cadena[i] == '(') {
+              push(s, &cadena[i]);
+          } else if (cadena[i] == ')') {
+              if (top(s) == NULL || *(char *)top(s) != '(') {
+                  return 0; // No están balanceados
+              }
+              pop(s);
+          }
+      }
+      return top(s) == NULL; // Si la pila está vacía, los paréntesis están balanceados
+  }
+
