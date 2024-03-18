@@ -135,18 +135,22 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) { 
-  Stack *s = create_stack();
-      int i;
-      for (i = 0; cadena[i] != '\0'; i++) {
-          if (cadena[i] == '(') {
-              push(s, &cadena[i]);
-          } else if (cadena[i] == ')') {
-              if (top(s) == NULL || *(char *)top(s) != '(') {
-                  return 0; // No están balanceados
-              }
+  tack *s = create_stack();
+  int i;
+  for (i = 0; cadena[i] != '\0'; i++) {
+      if (cadena[i] == '(' || cadena[i] == '[') {
+          push(s, &cadena[i]);
+      } else if (cadena[i] == ')' || cadena[i] == ']') {
+          if (top(s) == NULL || (*(char *)top(s) != '(' && *(char *)top(s) != '[')) {
+              return 0; // No están balanceados
+          }
+          if ((*(char *)top(s) == '(' && cadena[i] == ')') || (*(char *)top(s) == '[' && cadena[i] == ']')) {
               pop(s);
+          } else {
+              return 0; // No están balanceados
           }
       }
-      return top(s) == NULL; // Si la pila está vacía, los paréntesis están balanceados
+  }
+  return top(s) == NULL; // Si la pila está vacía, los delimitadores están balanceados
   }
 

@@ -275,3 +275,105 @@ Mon 18 Mar 2024 09:33:07 PM UTC:
  tests:  7|1
 total_score: 60/70
 52ced38
+Mon 18 Mar 2024 09:35:05 PM UTC: 
+ exercises.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:138:3: error: unknown type name ‘tack’; did you mean ‘Stack’?
+  138 |   tack *s = create_stack();
+      |   ^~~~
+      |   Stack
+exercises.c:138:13: error: initialization of ‘int *’ from incompatible pointer type ‘Stack *’ {aka ‘List *’} [-Werror=incompatible-pointer-types]
+  138 |   tack *s = create_stack();
+      |             ^~~~~~~~~~~~
+exercises.c:142:16: error: passing argument 1 of ‘push’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  142 |           push(s, &cadena[i]);
+      |                ^
+      |                |
+      |                int *
+In file included from exercises.c:2,
+                 from test.c:5:
+stack.h:11:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   11 | void push(Stack *stack, void *data) { pushFront(stack, data); }
+      |           ~~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c:144:19: error: passing argument 1 of ‘top’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  144 |           if (top(s) == NULL || (*(char *)top(s) != '(' && *(char *)top(s) != '[')) {
+      |                   ^
+      |                   |
+      |                   int *
+In file included from exercises.c:2,
+                 from test.c:5:
+stack.h:14:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   14 | void *top(Stack *stack) { return first(stack); }
+      |           ~~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c:144:47: error: passing argument 1 of ‘top’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  144 |           if (top(s) == NULL || (*(char *)top(s) != '(' && *(char *)top(s) != '[')) {
+      |                                               ^
+      |                                               |
+      |                                               int *
+In file included from exercises.c:2,
+                 from test.c:5:
+stack.h:14:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   14 | void *top(Stack *stack) { return first(stack); }
+      |           ~~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c:144:73: error: passing argument 1 of ‘top’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  144 |           if (top(s) == NULL || (*(char *)top(s) != '(' && *(char *)top(s) != '[')) {
+      |                                                                         ^
+      |                                                                         |
+      |                                                                         int *
+In file included from exercises.c:2,
+                 from test.c:5:
+stack.h:14:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   14 | void *top(Stack *stack) { return first(stack); }
+      |           ~~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c:147:29: error: passing argument 1 of ‘top’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  147 |           if ((*(char *)top(s) == '(' && cadena[i] == ')') || (*(char *)top(s) == '[' && cadena[i] == ']')) {
+      |                             ^
+      |                             |
+      |                             int *
+In file included from exercises.c:2,
+                 from test.c:5:
+stack.h:14:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   14 | void *top(Stack *stack) { return first(stack); }
+      |           ~~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c:147:77: error: passing argument 1 of ‘top’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  147 |           if ((*(char *)top(s) == '(' && cadena[i] == ')') || (*(char *)top(s) == '[' && cadena[i] == ']')) {
+      |                                                                             ^
+      |                                                                             |
+      |                                                                             int *
+In file included from exercises.c:2,
+                 from test.c:5:
+stack.h:14:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   14 | void *top(Stack *stack) { return first(stack); }
+      |           ~~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c:148:19: error: passing argument 1 of ‘pop’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  148 |               pop(s);
+      |                   ^
+      |                   |
+      |                   int *
+In file included from exercises.c:2,
+                 from test.c:5:
+stack.h:17:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   17 | void *pop(Stack *stack) { return popFront(stack); }
+      |           ~~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c:154:14: error: passing argument 1 of ‘top’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  154 |   return top(s) == NULL; // Si la pila está vacía, los delimitadores están balanceados
+      |              ^
+      |              |
+      |              int *
+In file included from exercises.c:2,
+                 from test.c:5:
+stack.h:14:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘int *’
+   14 | void *top(Stack *stack) { return first(stack); }
+      |           ~~~~~~~^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+750cd26
