@@ -117,7 +117,13 @@ void copia_pila(Stack *P1, Stack *P2) {
 
   int *elem2 = top(pilaAux);
 
-  push(P2, elem2);
+  while(elem2 != NULL) {
+    push(P2, elem2);
+    pop(pilaAux);
+    elem2 = top(pilaAux);
+  }
+
+  
 
 //  printf("PRIMERO AUX: %i", (*elem2));
 
