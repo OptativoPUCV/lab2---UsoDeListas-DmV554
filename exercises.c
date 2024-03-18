@@ -107,7 +107,7 @@ void copia_pila(Stack *P1, Stack *P2) {
 
  int*elem = top(P1);
 
-  //printf("ELEM P1: %i \n", (*elem));
+  printf("ELEM P1: %i \n", (*elem));
 
   while(elem != NULL) {
     push(pilaAux, elem);
@@ -119,7 +119,7 @@ void copia_pila(Stack *P1, Stack *P2) {
 
   int *elem2 = top(pilaAux);
 
-  //printf("ELEM P2: %i", (*elem2));
+  printf("ELEM P2: %i", (*elem2));
 
   Stack*pilaAux2 = create_stack();  
 
@@ -131,6 +131,8 @@ void copia_pila(Stack *P1, Stack *P2) {
 
   int *elem3 = top(pilaAux2);
 
+   printf("ELEM P3: %i", (*elem3));
+  
   while(elem3 != NULL) {
     push(P2, elem3);
     pop(pilaAux2);
