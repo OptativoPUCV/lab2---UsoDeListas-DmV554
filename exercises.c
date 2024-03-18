@@ -134,23 +134,25 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 0 en caso contrario.
 */
 
-int parentesisBalanceados(char *cadena) { 
-  Stack *s = create_stack();
-  int i;
-  for (i = 0; cadena[i] != '\0'; i++) {
-      if (cadena[i] == '(' || cadena[i] == '[') {
-          push(s, &cadena[i]);
-      } else if (cadena[i] == ')' || cadena[i] == ']') {
-          if (top(s) == NULL || (*(char *)top(s) != '(' && *(char *)top(s) != '[')) {
-              return 0; // No están balanceados
-          }
-          if ((*(char *)top(s) == '(' && cadena[i] == ')') || (*(char *)top(s) == '[' && cadena[i] == ']')) {
-              pop(s);
-          } else {
-              return 0; // No están balanceados
-          }
-      }
-  }
-  return top(s) == NULL; // Si la pila está vacía, los delimitadores están balanceados
-  }
+int esParIgual(char c1, char c2) {
+    return (c1 == '(' && c2 == ')') || (c1 == '[' && c2 == ']') || (c1 == '{' && c2 == '}');
+}
+
+int parentesisBalanceados(char *cadena) {
+    Stack *s = create_stack();
+    int i;
+    for (i = 0; cadena[i] != '\0'; i++) {
+        if (cadena[i] == '(' || cadena[i] == '[' || cadena[i] == '{') {
+            push(s, &cadena[i]);
+        } else if (cadena[i] == ')' || cadena[i] == ']' || cadena[i] == '}') {
+            if (top(s) == NULL || !esParIgual(*(char *)top(s), cadena[i])) {
+                return 0; // No están balanceados
+            }
+            pop(s);
+        }
+    }
+    return top(s) == NULL; // Si la pila está vacía, los paréntesis están balanceados
+}
+
+
 
