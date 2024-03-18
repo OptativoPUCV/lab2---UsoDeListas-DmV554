@@ -146,12 +146,16 @@ int parentesisBalanceados(char *cadena) {
             push(s, &cadena[i]);
         } else if (cadena[i] == ')' || cadena[i] == ']' || cadena[i] == '}') {
             if (top(s) == NULL || !esParIgual(*(char *)top(s), cadena[i])) {
-                return 0; // No están balanceados
+                return 0;
             }
             pop(s);
         }
     }
-    return 1; // Si la pila está vacía, los paréntesis están balanceados
+    if(top(s) == NULL) {
+      return 1;
+    } 
+
+  return 0;
 }
 
 
