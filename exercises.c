@@ -103,47 +103,28 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack *P1, Stack *P2) {
- Stack *pilaAux = create_stack();
+    Stack *aux = create_stack();
 
- int*elem = top(P1);
+    while (top(P1) != NULL) {
+        push(aux, top(P1));
+        pop(P1);
+    }
 
-  printf("ELEM P1: %i \n", (*elem));
+    while (top(aux) != NULL) {
+        push(P2, top(aux));
+        push(P1, top(aux));
+        pop(aux);
+    }
 
-  while(elem != NULL) {
-    push(pilaAux, elem);
-    pop(P1);
-    elem = top(P1);
-  }
+    while (top(P1) != NULL) {
+        push(aux, top(P1));
+        pop(P1);
+    }
 
-  //imprime_y_vacia_pila(pilaAux);
-
-  int *elem2 = top(pilaAux);
-
-  printf("ELEM P2: %i", (*elem2));
-
-  Stack*pilaAux2 = create_stack();  
-
-  while(elem2 != NULL) {
-    push(pilaAux2, elem2);
-    pop(pilaAux);
-    elem2 = top(pilaAux);
-  }
-
-  int *elem3 = top(pilaAux2);
-
-   
-  
-  while(elem3 != NULL) {
-    printf("ELEM P3: %i", (*elem3));
-    push(P2, elem3);
-    pop(pilaAux2);
-    elem3 = top(pilaAux2);
-  }
-  
-
-//  printf("PRIMERO AUX: %i", (*elem2));
-
-
+    while (top(aux) != NULL) {
+        push(P1, top(aux));
+        pop(aux);
+    }
 }
 
 /*
