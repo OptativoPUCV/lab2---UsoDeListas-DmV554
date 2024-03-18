@@ -113,6 +113,10 @@ void copia_pila(Stack *P1, Stack *P2) {
     elem = top(P1);
   }
 
+  imprime_y_vacia_pila(pilaAux);
+
+  
+
 }
 
 /*
