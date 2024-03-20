@@ -44,9 +44,9 @@ List *crea_lista() {
   List *L = create_list();
 
   //Si definimos malloc afuera del for, se reemplazará cada espacio ocupado por el arreglo, en este caso resultado un array solo de numeros 10, que es el ultimo que ocupamos. Es un mismo puntero que modifica su valor y se agrega 10 veces.
-  
+  int *elemento;
   for (int i = 1; i <= 10; i++) {
-    int *elemento = malloc(sizeof(int));
+    elemento = malloc(sizeof(int));
     *elemento = i;
     pushBack(L, elemento);
   }
@@ -60,7 +60,7 @@ Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y
 retorne la suma de sus elementos.
 */
-int sumaLista(List *L) { 
+int sumaLista(List *L) {
 
   if(L == NULL) return 0;
   
@@ -103,28 +103,27 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack *P1, Stack *P2) {
-    Stack *aux = create_stack();
+  Stack* Paux = create_stack();
+   void *dato;
 
-    while (top(P1) != NULL) {
-        push(aux, top(P1));
-        pop(P1);
-    }
+  //P1 -> [2,1,4,5,0]
+  //aux -> []
+   while(top(P1) != NULL) {
+      dato = pop(P1);
+      push(Paux, dato);
+   }
 
-    while (top(aux) != NULL) {
-        push(P2, top(aux));
-        push(P1, top(aux));
-        pop(aux);
-    }
+  //P1 -> []
+  //aux -> [0,5,4,1,2]
 
-    while (top(P1) != NULL) {
-        push(aux, top(P1));
-        pop(P1);
-    }
+   while(top(Paux) != NULL) {
+     dato = pop(Paux);
+      push(P1, dato);
+      push(P2, dato);
+   }
 
-    while (top(aux) != NULL) {
-        push(P1, top(aux));
-        pop(aux);
-    }
+  //P1 -> [2, 1, 4, 5, 0]
+  //P2 -> [2, 1, 4, 5, 0]
 }
 
 /*
